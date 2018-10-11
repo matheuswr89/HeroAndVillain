@@ -17,10 +17,10 @@ window.onload = function(){
 
 request.open('GET', url, true);
 
-request.setRequestHeader('Access-Control-Allow-Headers', '*');
-request.setRequestHeader("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
-request.setRequestHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
-request.setRequestHeader("Access-Control-Allow-Origin", "*");
+    request.setRequestHeader('Access-Control-Allow-Headers', '*');
+    request.setRequestHeader('Content-type', 'application/json');
+    request.setRequestHeader('Access-Control-Allow-Origin', '*');
+    request.setRequestHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
 
 request.open('GET', url, true);
 request.onload = function () {
