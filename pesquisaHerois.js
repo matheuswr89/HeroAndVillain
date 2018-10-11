@@ -11,15 +11,12 @@ window.onload = function(){
 
   var request = new XMLHttpRequest();
 
-  var url = 'http://www.superheroapi.com/api/2195914800646269/search/' + nome;
-
+  var url = 'Access-Control-Allow-Origin: http://www.superheroapi.com/api/2195914800646269/search/' + nome;
+  Vary: Origin;
 
 request.open('GET', url, true);
 request.onload = function () {
 	
-	Access-Control-Allow-Origin: 'http://www.superheroapi.com/api/2195914800646269/search/';
-	Vary: Origin;
-
   var data = JSON.parse(this.response);
   retorno = data;
   if (request.status >= 200 && request.status < 400) {
