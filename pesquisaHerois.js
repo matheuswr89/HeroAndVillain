@@ -13,7 +13,7 @@ window.onload = function(){
 
   var request = new XMLHttpRequest();
 
-   var url = "https://superheroapi.com/api/2195914800646269/search/" + nome;
+   var url = "http://superheroapi.com/api/2195914800646269/search/" + nome;
 
 request.open('GET', url, true);
 
