@@ -11,7 +11,7 @@ window.onload = function(){
 
   var request = new XMLHttpRequest();
 
-  var url = 'Access-Control-Allow-Origin = http://www.superheroapi.com/api/2195914800646269/search/' + nome;
+  var url = 'Access-Control-Allow-Origin: http://www.superheroapi.com/api/2195914800646269/search/' + nome;
 
 request.open('GET', url, true);
 request.onload = function () {
