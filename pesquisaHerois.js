@@ -20,7 +20,7 @@ request.open('GET', url, true);
     request.setRequestHeader('Access-Control-Allow-Headers', '*');
     request.setRequestHeader('Content-type', 'application/json');
     request.setRequestHeader('Access-Control-Allow-Origin', '*');
-    request.setRequestHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
+    request.setRequestHeader("Access-Control-Allow-Methods", "GET");
 
 request.open('GET', url, true);
 request.onload = function () {
