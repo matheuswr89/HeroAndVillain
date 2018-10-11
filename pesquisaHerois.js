@@ -13,7 +13,14 @@ window.onload = function(){
 
   var request = new XMLHttpRequest();
 
-  var url = 'Access-Control-Allow-Origin: <http://superheroapi.com/api/2195914800646269/search/>' + nome;
+   var url = "http://superheroapi.com/api/2195914800646269/search/" + nome;
+
+request.open('GET', url, true);
+
+request.setRequestHeader('Access-Control-Allow-Headers', '*');
+//request.setRequestHeader("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+//request.setRequestHeader("Access-Control-Allow-Methods", "GET, PUT, POST");
+request.setRequestHeader("Access-Control-Allow-Origin", "*");
 
 request.open('GET', url, true);
 request.onload = function () {
