@@ -6,8 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <script type="text/javascript" src="herois.js"></script>
-<FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css)$">
-  </FilesMatch>
 </head>
 
 <body id="top">
@@ -19,7 +17,7 @@
       </div>
       <nav id="mainav" class="fl_right">
         <ul class="clear">
-          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="pages/ids-personagens.html">IDs Supers Heróis e Vilões</a></li>
         </ul>
       </nav>
@@ -27,12 +25,10 @@
   </div>
   <div id="pageintro" class="hoc clear">
     <article> 
-      <<img src="images/demo/favicon2.png">
-      <footer>
-        <ul class="nospace inline pushright">
-          <input class="btn" type="type" name="nome" id="nomeHeroi" placeholder="Search hero or villain"><br><br>
+      <img src="images/demo/favicon2.png">
+      <footer for="cepDestino">
+          <input class="btn" type="type" name="nome" id="nomeHeroi" placeholder="Search">
           <a href="#"><button class="btn inverse"type="submit" onclick="consultar()" >Buscar</button></a>
-        </ul>
       </footer>
     </article>
   </div>
