@@ -6,7 +6,7 @@ window.onload = function(){
 
   var request = new XMLHttpRequest();
   
-request.open('GET', 'http://www.superheroapi.com/api.php/2195914800646269/search/' + nome , true);
+request.open('GET', 'http://superheroapi.com/api.php/2195914800646269/search/' + nome , true);
 request.onload = function () {
 
   var data = JSON.parse(this.response);
