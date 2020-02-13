@@ -1,4 +1,6 @@
-	var passaValor = function (valor) {
+function consultar() {
+	
+var passaValor = function (valor) {
 		var nome = valor;
 		var element = document.getElementById('element');
 		var power = document.getElementById('power');
@@ -77,6 +79,7 @@
 		request.send();
 	}
 	passaValor(document.getElementById('nomeHeroi').value);
+}
 
 document.addEventListener('keydown', function (event) {
 	if (event.keyCode !== 13) return;
