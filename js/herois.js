@@ -66,12 +66,14 @@ function consultar() {
 					}
 				} catch (e) {
 					if (data.results == null) {
-						pesquisa.innerHTML += "O Herói ou Vilão não foi encontrado!!! =(";
+						element.innerHTML += "";
+						alert("O Herói ou Vilão não foi encontrado!!! =(");
 					}
 					return undefined;
 				}
 			} else {
-				pesquisa.innerHTML += "O Herói ou Vilão não foi encontrado!!! =(";
+				element.innerHTML += "";
+				alert("O Herói ou Vilão não foi encontrado!!! =(");
 			}
 		}
 		request.send();
