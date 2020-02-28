@@ -62,10 +62,11 @@ function consultar() {
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
 
-                    } catch (e) {
-                        if (data.results == null) {
+                    } catch (z) {
+                        if (data == null) {
                             alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
+
                         }
                     }
                 }
