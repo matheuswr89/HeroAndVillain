@@ -11,7 +11,7 @@ function consultar() {
 
         var request = new XMLHttpRequest();
         console.log(isNaN(parseInt(nome)));
-        if (isNaN(parseInt(nome)) == false) {
+        if (isNaN(parseInt(nome)) === true) {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
             request.onload = function () {
 
@@ -62,15 +62,11 @@ function consultar() {
                                         </div>`;
 
                     } catch (e) {
-                        if (data.results == null) {
+                        if (data.response == 'error') {
                             alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
                         }
-                        return undefined;
                     }
-                } else {
-                    alert("O Herói ou Vilão não foi encontrado!!! =(");
-                    element.innerHTML += "";
                 }
             }
         } else {
@@ -132,11 +128,7 @@ function consultar() {
                             alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
                         }
-                        return undefined;
                     }
-                } else {
-                    alert("O Herói ou Vilão não foi encontrado!!! =(");
-                    element.innerHTML += "";
                 }
             }
         }
