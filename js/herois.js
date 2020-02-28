@@ -63,8 +63,8 @@ function consultar() {
                                         </div>`;
 
                     } catch (z) {
-                        if (data.response === 'success' ) {
-                            alert("O Herói ou Vilão não foi encontrado!!! =(");
+                        if (data.response == 'error' ) {
+                            alert("O Herói ou Vilão não foi encontrado!!!");
                             element.innerHTML += "";
 
                         }
@@ -127,7 +127,7 @@ function consultar() {
                         }
                     } catch (e) {
                         if (data.results == null) {
-                            alert("O Herói ou Vilão não foi encontrado!!! =(");
+                            alert("O Herói ou Vilão não foi encontrado!!!");
                             element.innerHTML += "";
                         }
                     }
