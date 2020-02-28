@@ -1,42 +1,40 @@
 function consultar() {
-	
+
     var passaValor = function (valor) {
-            var nome = valor;
-            var element = document.getElementById('element');
-            var power = document.getElementById('power');
-            var pesquisa = document.getElementById('pesquisa');
-    
-            pesquisa.innerHTML = "";
-            element.innerHTML = "";
-    
-            var request = new XMLHttpRequest();
-            console.log(isNaN(parseInt(nome)));
-            if(isNaN(parseInt(nome))==false){
-                request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
-                request.onload = function () {
-    
-                    var data = JSON.parse(this.response);
-                    if (request.status >= 200 && request.status < 400) {
-                        element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
-        
-                        try {
-                            for (var i = 0; i <= 1 ; i++) {
-                                var coll = document.getElementsByClassName("collapsible");
-                                var i;
-        
-                                for (i = 0; i < coll.length; i++) {
-                                    coll[i].addEventListener("click", function () {
-                                        this.classList.toggle("active");
-                                        var content = this.nextElementSibling;
-                                        if (content.style.display === "block") {
-                                            content.style.display = "none";
-                                        } else {
-                                            content.style.display = "block";
-                                        }
-                                    });
-                                }
-                                pesquisa.innerHTML +=
-                                    `<button class="collapsible colapse">${data.name}</button>
+        var nome = valor;
+        var element = document.getElementById('element');
+        var power = document.getElementById('power');
+        var pesquisa = document.getElementById('pesquisa');
+
+        pesquisa.innerHTML = "";
+        element.innerHTML = "";
+
+        var request = new XMLHttpRequest();
+        console.log(isNaN(parseInt(nome)));
+        if (isNaN(parseInt(nome)) == false) {
+            request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
+            request.onload = function () {
+
+                var data = JSON.parse(this.response);
+                if (request.status >= 200 && request.status < 400) {
+                    element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
+
+                    try {
+
+                        var coll = document.getElementsByClassName("collapsible");
+                      
+                        coll.addEventListener("click", function () {
+                            this.classList.toggle("active");
+                            var content = this.nextElementSibling;
+                            if (content.style.display === "block") {
+                                content.style.display = "none";
+                            } else {
+                                content.style.display = "block";
+                            }
+                        });
+
+                        pesquisa.innerHTML +=
+                            `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
                                             <center><img src="${ data.image.url}"class="imgherois"></center> 
                                             Nome:  ${data.name}     
@@ -64,45 +62,45 @@ function consultar() {
                                             <br>Afiliação: ${data.connections['group-affiliation']}
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
-                            }
-                        } catch (e) {
-                            if (data.results == null) {
-                                alert("O Herói ou Vilão não foi encontrado!!! =(");
-                                element.innerHTML += "";
-                            }
-                            return undefined;
+
+                    } catch (e) {
+                        if (data.results == null) {
+                            alert("O Herói ou Vilão não foi encontrado!!! =(");
+                            element.innerHTML += "";
                         }
-                    } else {
-                        alert("O Herói ou Vilão não foi encontrado!!! =(");
-                        element.innerHTML += "";
+                        return undefined;
                     }
+                } else {
+                    alert("O Herói ou Vilão não foi encontrado!!! =(");
+                    element.innerHTML += "";
                 }
-            }else{
-                request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
-                request.onload = function () {
-    
-                    var data = JSON.parse(this.response);
-                    if (request.status >= 200 && request.status < 400) {
-                        element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
-        
-                        try {
-                            for (var i = 0; i <= data.results.length; i++) {
-                                var coll = document.getElementsByClassName("collapsible");
-                                var i;
-        
-                                for (i = 0; i < coll.length; i++) {
-                                    coll[i].addEventListener("click", function () {
-                                        this.classList.toggle("active");
-                                        var content = this.nextElementSibling;
-                                        if (content.style.display === "block") {
-                                            content.style.display = "none";
-                                        } else {
-                                            content.style.display = "block";
-                                        }
-                                    });
-                                }
-                                pesquisa.innerHTML +=
-                                    `<button class="collapsible colapse">${data.results[i].name}</button>
+            }
+        } else {
+            request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
+            request.onload = function () {
+
+                var data = JSON.parse(this.response);
+                if (request.status >= 200 && request.status < 400) {
+                    element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
+
+                    try {
+                        for (var i = 0; i <= data.results.length; i++) {
+                            var coll = document.getElementsByClassName("collapsible");
+                            var i;
+
+                            for (i = 0; i < coll.length; i++) {
+                                coll[i].addEventListener("click", function () {
+                                    this.classList.toggle("active");
+                                    var content = this.nextElementSibling;
+                                    if (content.style.display === "block") {
+                                        content.style.display = "none";
+                                    } else {
+                                        content.style.display = "block";
+                                    }
+                                });
+                            }
+                            pesquisa.innerHTML +=
+                                `<button class="collapsible colapse">${data.results[i].name}</button>
                                         <div id="content">
                                             <center><img src="${ data.results[i].image.url}"class="imgherois"></center> 
                                             Nome:  ${data.results[i].name}     
@@ -130,32 +128,31 @@ function consultar() {
                                             <br>Afiliação: ${data.results[i].connections['group-affiliation']}
                                             <br>Parentes: ${data.results[i].connections.relative}
                                         </div>`;
-                            }
-                        } catch (e) {
-                            if (data.results == null) {
-                                alert("O Herói ou Vilão não foi encontrado!!! =(");
-                                element.innerHTML += "";
-                            }
-                            return undefined;
                         }
-                    } else {
-                        alert("O Herói ou Vilão não foi encontrado!!! =(");
-                        element.innerHTML += "";
+                    } catch (e) {
+                        if (data.results == null) {
+                            alert("O Herói ou Vilão não foi encontrado!!! =(");
+                            element.innerHTML += "";
+                        }
+                        return undefined;
                     }
+                } else {
+                    alert("O Herói ou Vilão não foi encontrado!!! =(");
+                    element.innerHTML += "";
                 }
             }
-            
-            request.send();
         }
-        passaValor(document.getElementById('nomeHeroi').value);
+
+        request.send();
     }
-    
-    document.addEventListener('keydown', function (event) {
-        if (event.keyCode !== 13) return;
-        var passaValor = function (valor) {
-            consultar();
-        }
-        passaValor(document.getElementById('nomeHeroi').value);
-    });
-    
-    
+    passaValor(document.getElementById('nomeHeroi').value);
+}
+
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode !== 13) return;
+    var passaValor = function (valor) {
+        consultar();
+    }
+    passaValor(document.getElementById('nomeHeroi').value);
+});
+
