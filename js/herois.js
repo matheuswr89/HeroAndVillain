@@ -31,7 +31,6 @@ function consultar() {
                                     content.style.maxHeight = content.scrollHeight + "px";
                                 }
                             });
-
                             pesquisa.innerHTML +=
                                 `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
@@ -62,7 +61,6 @@ function consultar() {
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
                         }
-
                     } catch (e) {
                         if (data.response == 'error') {
                             alert("O Herói ou Vilão não foi encontrado!!!");
@@ -82,16 +80,14 @@ function consultar() {
                     try {
                         for (var i = 0; i <= data.results.length; i++) {
                             var coll = document.getElementsByClassName("collapsible");
-                            var i;
-
-                            for (i = 0; i < coll.length; i++) {
+                            for (var i = 0; i < coll.length; i++) {
                                 coll[i].addEventListener("click", function () {
                                     this.classList.toggle("active");
                                     var content = this.nextElementSibling;
-                                    if (content.style.display === "block") {
-                                        content.style.display = "none";
+                                    if (content.style.maxHeight) {
+                                        content.style.maxHeight = null;
                                     } else {
-                                        content.style.display = "block";
+                                        content.style.maxHeight = content.scrollHeight + "px";
                                     }
                                 });
                             }
