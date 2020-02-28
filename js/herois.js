@@ -21,7 +21,7 @@ function consultar() {
                     element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
 
                     try {
-                        console.log(data.length);
+                        console.log(data);
                         coll.addEventListener("click", function () {
                             this.classList.toggle("active");
                             var content = this.nextElementSibling;
