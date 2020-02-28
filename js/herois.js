@@ -20,19 +20,6 @@ function consultar() {
                     element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
 
                     try {
-
-                        var coll = document.getElementsByClassName("collapsible");
-                      
-                        coll.addEventListener("click", function () {
-                            this.classList.toggle("active");
-                            var content = this.nextElementSibling;
-                            if (content.style.display === "block") {
-                                content.style.display = "none";
-                            } else {
-                                content.style.display = "block";
-                            }
-                        });
-
                         pesquisa.innerHTML +=
                             `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
@@ -75,6 +62,16 @@ function consultar() {
                     element.innerHTML += "";
                 }
             }
+            var coll = document.getElementsByClassName("collapsible");
+            coll.addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
         } else {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
             request.onload = function () {
@@ -142,7 +139,6 @@ function consultar() {
                 }
             }
         }
-
         request.send();
     }
     passaValor(document.getElementById('nomeHeroi').value);
