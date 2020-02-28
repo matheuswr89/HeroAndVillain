@@ -21,7 +21,7 @@ function consultar() {
                     element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
 
                     try {
-                        
+
                         coll.addEventListener("click", function () {
                             this.classList.toggle("active");
                             var content = this.nextElementSibling;
@@ -67,9 +67,8 @@ function consultar() {
                             alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
                         }
-                        return undefined;
                     }
-                } 
+                }
             }
         } else {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
@@ -81,7 +80,7 @@ function consultar() {
 
                     try {
                         for (var i = 0; i <= data.results.length; i++) {
-                            
+
                             var i;
 
                             for (i = 0; i < coll.length; i++) {
@@ -130,11 +129,7 @@ function consultar() {
                             alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
                         }
-                        return undefined;
                     }
-                } else {
-                    alert("O Herói ou Vilão não foi encontrado!!! =(");
-                    element.innerHTML += "";
                 }
             }
         }
