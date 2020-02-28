@@ -5,6 +5,7 @@ function consultar() {
         var element = document.getElementById('element');
         var power = document.getElementById('power');
         var pesquisa = document.getElementById('pesquisa');
+        var coll = document.getElementsByClassName("collapsible");
 
         pesquisa.innerHTML = "";
         element.innerHTML = "";
@@ -18,9 +19,9 @@ function consultar() {
                 var data = JSON.parse(this.response);
                 if (request.status >= 200 && request.status < 400) {
                     element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
-                    var coll = document.getElementsByClassName("collapsible");
-                    
+
                     try {
+                        
                         coll.addEventListener("click", function () {
                             this.classList.toggle("active");
                             var content = this.nextElementSibling;
@@ -30,6 +31,7 @@ function consultar() {
                                 content.style.display = "block";
                             }
                         });
+
                         pesquisa.innerHTML +=
                             `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
@@ -72,7 +74,6 @@ function consultar() {
                     element.innerHTML += "";
                 }
             }
-           
         } else {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
             request.onload = function () {
@@ -83,7 +84,7 @@ function consultar() {
 
                     try {
                         for (var i = 0; i <= data.results.length; i++) {
-                            var coll = document.getElementsByClassName("collapsible");
+                            
                             var i;
 
                             for (i = 0; i < coll.length; i++) {
