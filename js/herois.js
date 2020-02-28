@@ -10,8 +10,10 @@ var passaValor = function (valor) {
 		element.innerHTML = "";
 
 		var request = new XMLHttpRequest();
-
-		request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
+		if(isNumber(nome)
+			request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
+		else
+			request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
 		request.onload = function () {
 
 			var data = JSON.parse(this.response);
@@ -88,4 +90,8 @@ document.addEventListener('keydown', function (event) {
 	}
 	passaValor(document.getElementById('nomeHeroi').value);
 });
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
