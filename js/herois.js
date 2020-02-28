@@ -20,7 +20,7 @@ function consultar() {
                         element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
         
                         try {
-                            for (var i = 0; i < 1 ; i++) {
+                            for (var i = 0; i <= 1 ; i++) {
                                 var coll = document.getElementsByClassName("collapsible");
                                 var i;
         
