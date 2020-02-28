@@ -12,7 +12,7 @@ function consultar() {
 
         var request = new XMLHttpRequest();
         console.log(isNaN(parseInt(nome)));
-        if (isNaN(parseInt(nome)) == false) {
+        if (isNaN(parseInt(nome)) === true) {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
             request.onload = function () {
 
@@ -25,11 +25,11 @@ function consultar() {
                         coll.addEventListener("click", function () {
                             this.classList.toggle("active");
                             var content = this.nextElementSibling;
-                            if (content.style.display === "block") {
+                            if (content.style.display === "block")
                                 content.style.display = "none";
-                            } else {
+                            else
                                 content.style.display = "block";
-                            }
+
                         });
 
                         pesquisa.innerHTML +=
