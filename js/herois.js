@@ -11,7 +11,7 @@ function consultar() {
 
         var request = new XMLHttpRequest();
         console.log(isNaN(parseInt(nome)));
-        if (isNaN(parseInt(nome)) != true) {
+        if (isNaN(parseInt(nome)) == false) {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
             request.onload = function () {
 
@@ -21,18 +21,19 @@ function consultar() {
 
                     try {
                         var coll = document.getElementsByClassName("collapsible");
-                        coll.addEventListener("click", function () {
-                            this.classList.toggle("active");
-                            var content = this.nextElementSibling;
-                            if (content.style.display === "block") {
-                                content.style.display = "none";
-                            } else {
-                                content.style.display = "block";
-                            }
-                        });
+                        for (var i = 0; i < coll.length; i++) {
+                            coll[i].addEventListener("click", function () {
+                                this.classList.toggle("active");
+                                var content = this.nextElementSibling;
+                                if (content.style.maxHeight) {
+                                    content.style.maxHeight = null;
+                                } else {
+                                    content.style.maxHeight = content.scrollHeight + "px";
+                                }
+                            });
 
-                        pesquisa.innerHTML +=
-                            `<button class="collapsible colapse">${data.name}</button>
+                            pesquisa.innerHTML +=
+                                `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
                                             <center><img src="${ data.image.url}"class="imgherois"></center> 
                                             Nome:  ${data.name}     
@@ -60,10 +61,11 @@ function consultar() {
                                             <br>Afiliação: ${data.connections['group-affiliation']}
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
+                        }
 
                     } catch (e) {
                         if (data.response == 'error') {
-                            alert("O Herói ou Vilão não foi encontrado!!! =(");
+                            alert("O Herói ou Vilão não foi encontrado!!!");
                             element.innerHTML += "";
                         }
                     }
@@ -125,7 +127,7 @@ function consultar() {
                         }
                     } catch (e) {
                         if (data.results == null) {
-                            alert("O Herói ou Vilão não foi encontrado!!! =(");
+                            alert("O Herói ou Vilão não foi encontrado!!!");
                             element.innerHTML += "";
                         }
                     }
