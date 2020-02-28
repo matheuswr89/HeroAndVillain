@@ -5,14 +5,13 @@ function consultar() {
         var element = document.getElementById('element');
         var power = document.getElementById('power');
         var pesquisa = document.getElementById('pesquisa');
-        var coll = document.getElementsByClassName("collapsible");
 
         pesquisa.innerHTML = "";
         element.innerHTML = "";
 
         var request = new XMLHttpRequest();
         console.log(isNaN(parseInt(nome)));
-        if (isNaN(parseInt(nome)) === true) {
+        if (isNaN(parseInt(nome)) == false) {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
             request.onload = function () {
 
@@ -21,15 +20,15 @@ function consultar() {
                     element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
 
                     try {
-                        console.log(data);
+                        var coll = document.getElementsByClassName("collapsible");
                         coll.addEventListener("click", function () {
                             this.classList.toggle("active");
                             var content = this.nextElementSibling;
-                            if (content.style.display === "block")
+                            if (content.style.display === "block") {
                                 content.style.display = "none";
-                            else
+                            } else {
                                 content.style.display = "block";
-
+                            }
                         });
 
                         pesquisa.innerHTML +=
@@ -62,13 +61,16 @@ function consultar() {
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
 
-                    } catch (z) {
-                        if (data.response == 'error' ) {
-                            console.log('passou aqui')
-                            alert("O Herói ou Vilão não foi encontrado!!!");
+                    } catch (e) {
+                        if (data.results == null) {
+                            alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
                         }
+                        return undefined;
                     }
+                } else {
+                    alert("O Herói ou Vilão não foi encontrado!!! =(");
+                    element.innerHTML += "";
                 }
             }
         } else {
@@ -81,7 +83,7 @@ function consultar() {
 
                     try {
                         for (var i = 0; i <= data.results.length; i++) {
-
+                            var coll = document.getElementsByClassName("collapsible");
                             var i;
 
                             for (i = 0; i < coll.length; i++) {
@@ -127,10 +129,14 @@ function consultar() {
                         }
                     } catch (e) {
                         if (data.results == null) {
-                            alert("O Herói ou Vilão não foi encontrado!!!");
+                            alert("O Herói ou Vilão não foi encontrado!!! =(");
                             element.innerHTML += "";
                         }
+                        return undefined;
                     }
+                } else {
+                    alert("O Herói ou Vilão não foi encontrado!!! =(");
+                    element.innerHTML += "";
                 }
             }
         }
@@ -146,3 +152,4 @@ document.addEventListener('keydown', function (event) {
     }
     passaValor(document.getElementById('nomeHeroi').value);
 });
+
