@@ -69,10 +69,7 @@ function consultar() {
                         }
                         return undefined;
                     }
-                } else {
-                    alert("O Herói ou Vilão não foi encontrado!!! =(");
-                    element.innerHTML += "";
-                }
+                } 
             }
         } else {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/search/' + nome, true);
