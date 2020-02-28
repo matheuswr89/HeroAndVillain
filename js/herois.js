@@ -63,11 +63,11 @@ function consultar() {
                                         </div>`;
 
                     } catch (z) {
-                        
-                            console.log('passou aqui');
+                        if (data.response == 'error' ) {
+                            console.log('passou aqui')
                             alert("O Herói ou Vilão não foi encontrado!!!");
                             element.innerHTML += "";
-                        
+                        }
                     }
                 }
             }
@@ -146,4 +146,3 @@ document.addEventListener('keydown', function (event) {
     }
     passaValor(document.getElementById('nomeHeroi').value);
 });
-
