@@ -10,6 +10,7 @@ var passaValor = function (valor) {
 		element.innerHTML = "";
 
 		var request = new XMLHttpRequest();
+		console.log(isNaN(parseInt(nome)));
 		if(isNaN(parseInt(nome))==true){
 			request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
 			console.log("passou aqui"+nome);
