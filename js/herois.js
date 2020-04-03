@@ -10,13 +10,12 @@ function consultar() {
         element.innerHTML = "";
 
         var request = new XMLHttpRequest();
-        console.log(isNaN(parseInt(nome)));
-        if (!isNaN(parseInt(nome))) {
+        if (isNaN(parseInt(nome))==false) {
             request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/'+ nome, true);
-            console.log(JSON.parse(request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/'+ nome, true)));
             request.onload = function () {
 
                 var data = JSON.parse(this.response);
+                console.log(data);
                 if (request.status >= 200 && request.status < 400) {
                     element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
 
