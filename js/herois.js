@@ -12,7 +12,8 @@ function consultar() {
         var request = new XMLHttpRequest();
         console.log(isNaN(parseInt(nome)));
         if (isNaN(parseInt(nome)) == false) {
-            request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
+            request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/'+ nome, true);
+            console.log(request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/'+ nome, true));
             request.onload = function () {
 
                 var data = JSON.parse(this.response);
