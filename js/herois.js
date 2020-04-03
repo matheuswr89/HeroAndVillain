@@ -16,8 +16,8 @@ function consultar() {
 
                 var data = JSON.parse(this.response);
                 console.log(data);
-                if (request.status >= 200 && request.status < 400) {
-                    element.innerHTML += "<h2>Resultados para " + nome + "</h2>";
+                if (request.status >= 200 && request.status < 400 || data.response == 'success') {
+                    element.innerHTML += "<h2>Resultados para " + data.nome - nome + "</h2>";
 
                     try {
                         var coll = document.getElementsByClassName("collapsible");
