@@ -7,7 +7,6 @@ function scrollFunction() {
     document.getElementById("footer-inicio").style.position = "relative";
   } else {
     mybutton.style.display = "none";
-    document.getElementById("footer-inicio").style.position = "absolute";
   }
 }
 function topFunction() {
@@ -24,5 +23,5 @@ let winHeight = window.innerHeight;
 if (docHeight > winHeight){
   document.getElementById("footer-inicio").style.position = "relative";
 } else {
-  console.log('Não tem Scroll');
+  document.getElementById("footer-inicio").style.position = "absolute";
 }
