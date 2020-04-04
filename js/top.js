@@ -7,9 +7,10 @@ function scrollFunction() {
     document.getElementById("footer-inicio").style.position = "relative";
   } else {
     mybutton.style.display = "none";
+    document.getElementById("footer-inicio").style.position = "absolute";
   }
-  if(document.body.scrollTop<15 || document.documentElement.scrollTop <15){
-        document.getElementById("footer-inicio").style.position = "absolute";
+  if(document.body.scrollTop.style.display != "none" || document.documentElement.style.display != "none"){
+        document.getElementById("footer-inicio").style.position = "relative";
   }
   
 }
