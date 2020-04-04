@@ -20,15 +20,19 @@ function consultar() {
                     element.innerHTML += `<h2>Resultados para "${data.name} - ${nome}"</h2>`;
 
                     try {
-                        var coll = document.getElementsByClassName("collapsible");
-                        coll.addEventListener("click", function () {
-                                this.classList.toggle("active");
-                                if (coll.style.maxHeight) {
-                                    coll.style.maxHeight = null;
-                                } else {
-                                    coll.style.maxHeight = coll.scrollHeight + "px";
-                                }
-                            });
+                        
+                            var coll = document.getElementsByClassName("collapsible");
+                            for (var i = 0; i < coll.length; i++) {
+                                coll[i].addEventListener("click", function () {
+                                    this.classList.toggle("active");
+                                    var content = this.nextElementSibling;
+                                    if (content.style.maxHeight) {
+                                        content.style.maxHeight = null;
+                                    } else {
+                                        content.style.maxHeight = content.scrollHeight + "px";
+                                    }
+                                });
+                            }
                             pesquisa.innerHTML +=
                                 `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
@@ -58,6 +62,7 @@ function consultar() {
                                             <br>Afiliação: ${data.connections['group-affiliation']}
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
+                                    
                         
                     } catch (e) {
                         if (data.response == 'error') {
