@@ -17,11 +17,10 @@ function consultar() {
                 var data = JSON.parse(this.response);
                 console.log(data);
                 if (request.status >= 200 && request.status < 400 || data.response == 'success') {
-                    element.innerHTML += "<h2>Resultados para " + data.nome - nome + "</h2>";
+                    element.innerHTML += `<h2>Resultados para " + ${data.name} - ${nome} + "</h2>`;
 
                     try {
                         var coll = document.getElementsByClassName("collapsible");
-                        for (var i = 0; i < coll.length; i++) {
                             coll.addEventListener("click", function () {
                                 this.classList.toggle("active");
                                 var content = this.nextElementSibling;
@@ -60,7 +59,7 @@ function consultar() {
                                             <br>Afiliação: ${data.connections['group-affiliation']}
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
-                        }
+                        
                     } catch (e) {
                         if (data.response == 'error') {
                             alert("O Herói ou Vilão não foi encontrado!!!");
