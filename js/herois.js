@@ -10,8 +10,8 @@ function consultar() {
         element.innerHTML = "";
 
         var request = new XMLHttpRequest();
-        if (isNaN(parseInt(nome))==false) {
-            request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/'+ nome, true);
+        if (isNaN(parseInt(nome)) == false) {
+            request.open('GET', 'https://superheroapi.com/api.php/2195914800646269/' + nome, true);
             request.onload = function () {
 
                 var data = JSON.parse(this.response);
@@ -20,21 +20,8 @@ function consultar() {
                     element.innerHTML += `<h2>Resultados para "${data.name} - ${nome}"</h2>`;
 
                     try {
-                        
-                            var coll = document.getElementsByClassName("collapsible");
-                            for (i = 0; i < coll.length; i++) {
-							  coll[i].addEventListener("click", function() {
-							    this.classList.toggle("active");
-							    var content = this.nextElementSibling;
-							    if (content.style.display === "block") {
-							      content.style.display = "none";
-							    } else {
-							      content.style.display = "block";
-							    }
-							  });
-							}
-                            pesquisa.innerHTML +=
-                                `<button class="collapsible colapse">${data.name}</button>
+                        pesquisa.innerHTML +=
+                            `<button class="collapsible colapse">${data.name}</button>
                                         <div id="content">
                                             <center><img src="${ data.image.url}"class="imgherois"></center> 
                                             Nome:  ${data.name}     
@@ -62,8 +49,19 @@ function consultar() {
                                             <br>Afiliação: ${data.connections['group-affiliation']}
                                             <br>Parentes: ${data.connections.relative}
                                         </div>`;
-                                    
-                        
+                        var coll = document.getElementsByClassName("collapsible");
+                        for (i = 0; i < coll.length; i++) {
+                            coll[i].addEventListener("click", function () {
+                                this.classList.toggle("active");
+                                var content = this.nextElementSibling;
+                                if (content.style.display === "block") {
+                                    content.style.display = "none";
+                                } else {
+                                    content.style.display = "block";
+                                }
+                            });
+                        }
+
                     } catch (e) {
                         if (data.response == 'error') {
                             alert("O Herói ou Vilão não foi encontrado!!!");
