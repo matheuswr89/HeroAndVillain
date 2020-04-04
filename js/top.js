@@ -2,7 +2,7 @@ var mybutton = document.getElementById("myBtn");
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 21 || document.documentElement.scrollTop > 21) {
     mybutton.style.display = "block";
     document.getElementById("footer-inicio").style.position = "relative";
   } else {
