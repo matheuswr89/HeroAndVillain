@@ -17,17 +17,16 @@ function consultar() {
                 var data = JSON.parse(this.response);
                 console.log(data);
                 if (request.status >= 200 && request.status < 400 || data.response == 'success') {
-                    element.innerHTML += `<h2>Resultados para " + ${data.name} - ${nome} + "</h2>`;
+                    element.innerHTML += `<h2>Resultados para "${data.name} - ${nome}"</h2>`;
 
                     try {
                         var coll = document.getElementsByClassName("collapsible");
-                            coll.addEventListener("click", function () {
+                        coll.addEventListener("click", function () {
                                 this.classList.toggle("active");
-                                var content = this.nextElementSibling;
-                                if (content.style.maxHeight) {
-                                    content.style.maxHeight = null;
+                                if (coll.style.maxHeight) {
+                                    coll.style.maxHeight = null;
                                 } else {
-                                    content.style.maxHeight = content.scrollHeight + "px";
+                                    coll.style.maxHeight = coll.scrollHeight + "px";
                                 }
                             });
                             pesquisa.innerHTML +=
