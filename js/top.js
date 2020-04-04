@@ -8,14 +8,15 @@ window.onscroll = function () { scrollFunction() };
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
-    if (docHeight > winHeight){
+    document.getElementById("footer-inicio").style.position = "relative";
+  } else {
+    mybutton.style.display = "none";
+  }
+  if (docHeight > winHeight){
       document.getElementById("footer-inicio").style.position = "relative";
     } else {
       document.getElementById("footer-inicio").style.position = "absolute";
     }
-  } else {
-    mybutton.style.display = "none";
-  }
 }
 function topFunction() {
   document.body.scrollTop = 0;
