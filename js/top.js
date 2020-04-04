@@ -16,10 +16,10 @@ function topFunction() {
 let body = document.body, html = document.documentElement
 let docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 let winHeight = window.innerHeight;
-console.log(docHeight);
-console.log(winHeight);
 if (docHeight > winHeight){
   document.getElementById("footer-inicio").style.position = "relative";
+  console.log('Tem Scroll');
 } else {
   document.getElementById("footer-inicio").style.position = "absolute";
+  console.log('nao tem Scroll');
 }
